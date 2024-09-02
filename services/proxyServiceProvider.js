@@ -1,7 +1,7 @@
 const axios = require('axios');
 const NodeCache = require('node-cache');
-
-const cache = new NodeCache({ stdTTL: process.env.CACHE_DURATION || 300 });
+const cacheDuration=300;
+const cache = new NodeCache({ stdTTL: process.env.CACHE_DURATION || cacheDuration });
 
 exports.fetchData = async (url) => {
 

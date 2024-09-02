@@ -1,4 +1,4 @@
-const proxyService = require('../services/proxyService');
+const proxyServiceProvider = require('../services/proxyServiceProvider');
 
 exports.handleProxyRequest = async (req, res) => {
   const { url } = req.query;
@@ -8,7 +8,7 @@ exports.handleProxyRequest = async (req, res) => {
   }
 
   try {
-    const data = await proxyService.fetchData(url);
+    const data = await proxyServiceProvider.fetchData(url);
     return res.json(data);
   } catch (error) {
     return res.status(error.response ? error.response.status : 500).json({
